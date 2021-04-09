@@ -19,7 +19,7 @@
         <div class="container">
             <div class="signup-content">
                 <form action="sign_in_post.php" method="POST" id="signup-form" class="signup-form">
-                    <h2>Sign In </h2>
+                    <h2>Sign In Form </h2>
                     <div class="form-group">
                         <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
                     </div>
