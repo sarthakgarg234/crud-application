@@ -15,7 +15,7 @@
         <div class="container">
             <div class="signup-content">
                 <form action="sign_up_post.php" method="POST" id="signup-form" class="signup-form">
-                    <h2>Sign up </h2>
+                    <h2>Sign up Form </h2>
                     <div class="form-group">
                         <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
                     </div>
