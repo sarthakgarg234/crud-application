@@ -16,7 +16,6 @@
             <div class="signup-content">
                 <form action="sign_up_post.php" method="POST" id="signup-form" class="signup-form">
                     <h2>Sign up </h2>
-                    <p class="desc">to get discount 10% when pre - order <span>“Batman Beyond”</span></p>
                     <div class="form-group">
                         <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
                     </div>
