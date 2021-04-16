@@ -2,7 +2,7 @@
 //Database Connection
 include('connection.php');
 if(isset($_POST['submit']))
-  {
+  { 
   	$eid=$_GET['editid'];
   	//Getting Post Values
     $fname=$_POST['fname'];
@@ -12,15 +12,16 @@ if(isset($_POST['submit']))
     $address=$_POST['address'];
 
     //Query for data updation
-     $query=mysqli_query($con, "update  regform set firstname='$fname',lastname='$lname',email='$email',age='$age' address='$address' where id='$eid'");
+	$sql = "update regform set firstname='$fname',lastname='$lname',email='$email',age='$age', address='$address' where id='$eid'";
+     $query=mysqli_query($con, $sql);
      
     if ($query) {
-    echo "<script>alert('You have successfully update the data');</script>";
-    echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
-  }
-  else
-    {
-      echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    	echo "<script>alert('You have successfully update the data');</script>";
+    	echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
+  	}
+  	else
+    { 
+      	echo "<script>alert('Something Went Wrong. Please try again');</script>";
     }
 }
 ?>
