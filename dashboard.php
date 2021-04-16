@@ -180,7 +180,10 @@ table.table td i {
                         <th>S.No</th>
                         <th>Name</th>                       
                         <th>Email</th>
+                        <th>Birthday</th>
                         <th>Age</th>
+                        <th>Gender</th>
+                        <th>Category</th>
                         <th>Address</th>
                         <th>Action</th>
                     </tr>
@@ -197,8 +200,11 @@ while ($row=mysqli_fetch_array($ret)) {
 <tr>
                         <td><?php echo $cnt;?></td>
                         <td><?php  echo $row['firstname'];?> <?php  echo $row['lastname'];?></td>
-                        <td><?php  echo $row['email'];?></td>                        
+                        <td><?php  echo $row['email'];?> </td>                        
+                        <td><?php  echo $row['birthday'];?></td>                        
                         <td><?php  echo $row['age'];?></td>
+                        <td><?php  echo $row['gender'];?></td>
+                        <td><?php  echo $row['category'];?></td>
                         <td> <?php  echo $row['address'];?></td>
                         <td>
   <a href="read.php?viewid=<?php echo htmlentities ($row['id']);?>" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>

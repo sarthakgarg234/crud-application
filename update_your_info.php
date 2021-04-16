@@ -8,11 +8,14 @@ if(isset($_POST['submit']))
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
     $email=$_POST['email'];
+    $birthday=$_POST['birthday'];
     $age=$_POST['age'];
+    $gender=$_POST['gender'];
+    $category=$_POST['category'];
     $address=$_POST['address'];
 
     //Query for data updation
-	$sql = "update regform set firstname='$fname',lastname='$lname',email='$email',age='$age', address='$address' where id='$eid'";
+	$sql = "update regform set firstname='$fname',lastname='$lname',email='$email',birthday='$birthday',age='$age',gender='$gender',category='$category', address='$address' where id='$eid'";
      $query=mysqli_query($con, $sql);
      
     if ($query) {
@@ -148,7 +151,16 @@ while ($row=mysqli_fetch_array($ret)) {
         	<input type="email" class="form-control" name="email" value="<?php  echo $row['email'];?>" required="true">
         </div>
         <div class="form-group">
+        	<input type="birthday" class="form-control" name="birthday" value="<?php  echo $row['birthday'];?>" required="true">
+        </div>
+        <div class="form-group">
         	<input type="age" class="form-control" name="age" value="<?php  echo $row['age'];?>" required="true">
+        </div>
+        <div class="form-group">
+        	<input type="gender" class="form-control" name="gender" value="<?php  echo $row['gender'];?>" required="true">
+        </div>
+        <div class="form-group">
+        	<input type="category" class="form-control" name="category" value="<?php  echo $row['category'];?>" required="true">
         </div>
 		
 		<div class="form-group">

@@ -181,8 +181,18 @@ while ($row=mysqli_fetch_array($ret)) {
   <tr>
     <th>Email</th>
     <td><?php  echo $row['email'];?></td>
+    <th>Birtday</th>
+    <td><?php  echo $row['birthday'];?></td>
     <th>Age</th>
     <td><?php  echo $row['age'];?></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><?php  echo $row['gender'];?></td>
+  </tr>
+  <tr>
+    <th>Category</th>
+    <td><?php  echo $row['category'];?></td>
   </tr>
   <tr>
     <th>Address</th>

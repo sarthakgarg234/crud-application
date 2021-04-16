@@ -7,11 +7,14 @@ if(isset($_POST['submit']))
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
     $email=$_POST['email'];
+    $birthday=$_POST['birthday'];
     $age=$_POST['age'];
+    $gender=$_POST['gender'];
+    $category=$_POST['category'];
     $address=$_POST['address'];
    
   // Query for data insertion
-     $query=mysqli_query($con, "insert into regform(firstname,lastname,email,age,address) value('$fname','$lname', '$email', '$age','$address')");
+     $query=mysqli_query($con, "insert into regform(firstname,lastname,email,birthday,age,gender,category,address) value('$fname','$lname', '$email','$birthday', '$age','$gender','$category','$address')");
     if ($query) {
     echo "<script>alert('You have successfully inserted the data');</script>";
     echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
@@ -137,12 +140,31 @@ body {
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Enter your Email Id" required="true">
+        	<input type="email" class="form-control" name="email" placeholder="Enter your Email" required="true">
+        </div>
+        <div class="form-group">
+		<input type="date" class="form-control" id="birthday" name="birthday">
         </div>
         <div class="form-group">
         	<input type="age" class="form-control" name="age" placeholder="Enter your Age" required="true">
         </div>
-		
+		<div class="form-group">
+		<h3 class="text-center">Gender</h3>
+		<select name="gender" id="gender" class="form-control">
+  			<option value="Male">Male</option>
+  			<option value="Female">Female</option>
+  			<option value="Others">Others</option>
+		</select>
+		</div>
+		<div class="form-group">
+		<h3 class="text-center">Category</h3>
+		<select name="category" id="category" class="form-control">
+  			<option value="General">General</option>
+  			<option value="SC">SC</option>
+  			<option value="ST">ST</option>
+  			<option value="OBC">OBC</option>
+		</select>
+		</div>
 		<div class="form-group">
             <textarea class="form-control" name="address" placeholder="Enter Your Address" required="true"></textarea>
         </div>        
