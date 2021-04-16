@@ -6,10 +6,10 @@ if(isset($_POST['submit']))
   	$eid=$_GET['editid'];
   	//Getting Post Values
     $fname=$_POST['fname'];
-    $lname=$_POST['lastname'];
+    $lname=$_POST['lname'];
     $email=$_POST['email'];
     $age=$_POST['age'];
-    $add=$_POST['address'];
+    $address=$_POST['address'];
 
     //Query for data updation
      $query=mysqli_query($con, "update  regform set firstname='$fname',lastname='$lname',email='$email',age='$age' address='$address' where id='$eid'");
