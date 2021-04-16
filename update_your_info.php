@@ -1,19 +1,21 @@
 <?php 
-//Databse Connection file
+//Database Connection
 include('connection.php');
 if(isset($_POST['submit']))
   {
-  	//getting the post values
+  	$eid=$_GET['editid'];
+  	//Getting Post Values
     $fname=$_POST['fname'];
-    $lname=$_POST['lname'];
+    $lname=$_POST['lastname'];
     $email=$_POST['email'];
     $age=$_POST['age'];
-    $address=$_POST['address'];
-   
-  // Query for data insertion
-     $query=mysqli_query($con, "insert into regform(firstname,lastname,email,age,address) value('$fname','$lname', '$email', '$age','$address')");
+    $add=$_POST['address'];
+
+    //Query for data updation
+     $query=mysqli_query($con, "update  regform set firstname='$fname',lastname='$lname',email='$email',age='$age' address='$address' where id='$eid'");
+     
     if ($query) {
-    echo "<script>alert('You have successfully inserted the data');</script>";
+    echo "<script>alert('You have successfully update the data');</script>";
     echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
   }
   else
@@ -128,30 +130,36 @@ body {
 <body>
 <div class="signup-form">
     <form  method="POST">
-		<h2>Fill Data</h2>
-		<p class="hint-text">Fill below form.</p>
+ <?php
+$eid=$_GET['editid'];
+$ret=mysqli_query($con,"select * from regform where id='$eid'");
+while ($row=mysqli_fetch_array($ret)) {
+?>
+		<h2>Update </h2>
+		<p class="hint-text">Update your info.</p>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="fname" placeholder="First Name" required="true"></div>
-				<div class="col"><input type="text" class="form-control" name="lname" placeholder="Last Name" required="true"></div>
+				<div class="col"><input type="text" class="form-control" name="fname" value="<?php  echo $row['firstname'];?>" required="true"></div>
+				<div class="col"><input type="text" class="form-control" name="lname" value="<?php  echo $row['lastname'];?>" required="true"></div>
 			</div>        	
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Enter your Email Id" required="true">
+        	<input type="email" class="form-control" name="email" value="<?php  echo $row['email'];?>" required="true">
         </div>
         <div class="form-group">
-        	<input type="age" class="form-control" name="age" placeholder="Enter your Age" required="true">
+        	<input type="age" class="form-control" name="age" value="<?php  echo $row['age'];?>" required="true">
         </div>
 		
 		<div class="form-group">
-            <textarea class="form-control" name="address" placeholder="Enter Your Address" required="true"></textarea>
+            <textarea class="form-control" name="address" required="true"><?php  echo $row['address'];?></textarea>
         </div>        
-      
+      <?php 
+}?>
 		<div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" name="submit">Submit</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block" name="submit">Update</button>
         </div>
     </form>
-	<div class="text-center">View Aready Inserted Data!!  <a href="dashboard.php">View</a></div>
+
 </div>
 </body>
 </html>
